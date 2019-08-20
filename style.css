@@ -1,0 +1,33 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans";
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #404041;
+  padding: 1%;
+}
+
+h1 {
+  color: #dd1972;
+  letter-spacing: 2px;
+}
+
+.white-font {
+  color: #FFFFFF;
+}
+
+.thin-text {
+  font-weight: 100;
+}
