@@ -21,14 +21,14 @@
       <h3>Set Range</h3><br>
       <form>
         <label type="label" name="Min Range">Min Range</label>
-        <input type="text">
+        <input type="number" class="min-range-input">
         <label type="label" name="Max Range">Max Range</label>
-        <input type="text">
-        <input type="button" class="dark-button" value="UPDATE">
+        <input type="number" class="max-range-input">
+        <input type="button" class="dark-button range-button" value="UPDATE">
       </form>
     </section>
     <section class="current-range-section">
-      <p>The Current Range is <span>1</span> to <span>100</span></p>
+      <p>The Current Range is <span class="min-number">1</span> to <span class="max-number">100</span></p>
       <h3>Challenger 1</h3>
       <form>
         <label type="label" name="Name">Name</label>
@@ -63,5 +63,5 @@
     </section>
   </article>
 </body>
-
+<script type="text/javascript" src="main.js"></script>
 </html>
