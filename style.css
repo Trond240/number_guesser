@@ -27,6 +27,20 @@ h1 {
   font-weight: 800;
 }
 
+.subtitle-container {
+  display:flex;
+}
+
+.line {
+  border-bottom: 2px solid #FFFFFF;
+  width: 120px;
+  margin: 11px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
 h4 {
   color: #6E6E6E;
   font-size: 20px;
