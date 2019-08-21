@@ -102,6 +102,31 @@ h4 {
   width: 137px;
   height: 42px;
   font-weight: 700;
+  margin: 2%;
+}
+
+.dark-button-2 {
+  background-color: #6e6e6e;
+  color: #ffffff;
+  border-radius: 35px;
+  font-size: 20px;
+  text-align: center;
+  width: 160px;
+  height: 42px;
+  font-weight: 700;
+  margin: 2%;
+}
+
+.dark-button-3 {
+  background-color: #6e6e6e;
+  color: #ffffff;
+  border-radius: 35px;
+  font-size: 20px;
+  text-align: center;
+  width: 168px;
+  height: 42px;
+  font-weight: 700;
+  margin: 2%;
 }
 
 .current-range-section {
