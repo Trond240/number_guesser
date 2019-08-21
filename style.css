@@ -85,3 +85,26 @@ h4 {
   width: 100%;
   font-size: 25px;
 }
+
+.set-range-section {
+  border: 1px solid grey;
+  width: 95%;
+  margin: 5% 2%;
+  padding: 1.5% 2%;
+}
+
+.current-range-section {
+  border: 1px solid grey;
+  width: 95%;
+  margin: 5% 2%;
+  padding: 1.5% 2%;
+}
+
+label {
+  color: #6E6E6E;
+}
+
+input {
+  height: 28px;
+}
+ 
