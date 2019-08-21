@@ -4,6 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -22,6 +23,19 @@ header{
 h1 {
   color: #dd1972;
   letter-spacing: 2px;
+  font-size: 71px;
+  font-weight: 800;
+}
+
+h4 {
+  color: #6E6E6E;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.left-side-section {
+  width: 50%;
+  border: 1px solid grey;
 }
 
 .white-font {
@@ -30,4 +44,26 @@ h1 {
 
 .thin-text {
   font-weight: 100;
+}
+
+.latest-score-card-border {
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  border: 1px solid grey;
+  width: 95%;
+  margin: 5% 2%;
+  padding: 1.5% 2%;
+}
+
+.latest-score-card {
+  text-align: center;
+  width: 49%;
+}
+
+.latest-score-header {
+  color: #404041;
+  display: block;
+  width: 100%;
+  font-size: 25px;
 }
