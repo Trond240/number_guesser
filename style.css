@@ -27,6 +27,20 @@ h1 {
   font-weight: 800;
 }
 
+.subtitle-container {
+  display:flex;
+}
+
+.line {
+  border-bottom: 2px solid #FFFFFF;
+  width: 120px;
+  margin: 11px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
 h4 {
   color: #6E6E6E;
   font-size: 20px;
@@ -50,7 +64,7 @@ h4 {
   display: flex;
   justify-content: center;
   flex-wrap:wrap;
-  border: 1px solid grey;
+  border: 1px solid #e8e8e8;
   width: 95%;
   margin: 5% 2%;
   padding: 1.5% 2%;
@@ -59,6 +73,10 @@ h4 {
 .latest-score-card {
   text-align: center;
   width: 49%;
+}
+
+.score-card-midline {
+  border-left: 1px solid #e8e8e8;
 }
 
 .latest-score-header {
