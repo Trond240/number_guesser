@@ -20,7 +20,8 @@ function updateRange() {
 };
 
 function createRandomNum() {
-  randomNumber = Math.floor(Math.random() * (parseInt(maxRangeSelection.value) - parseInt(minRangeSelection.value) + 1) + parseInt(minRangeSelection.value));
+  randomNumber = Math.floor(Math.random() * (parseInt(maxRangeSelection.value)
+    - parseInt(minRangeSelection.value) + 1) + parseInt(minRangeSelection.value));
   console.log(randomNumber);
 };
 

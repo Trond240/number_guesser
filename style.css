@@ -9,6 +9,7 @@
 
 body {
   font-family: "Open Sans";
+  background-color: #D1D2D4;
 }
 
 header{
@@ -89,11 +90,19 @@ h4 {
 }
 
 .set-range-section {
-  border: 1px solid grey;
+  border: 1px solid #e8e8e8;
   width: 95%;
   margin: 5% 2%;
   padding: 1.5% 2%;
   background-color: #FFFFFF;
+}
+
+.set-range-label {
+  display: flex;
+}
+
+.set-range-text {
+  height: 42px;
 }
 
 .dark-button {
@@ -108,7 +117,7 @@ h4 {
 }
 
 .current-range-section {
-  border: 1px solid grey;
+  border: 1px solid #e8e8e8;
   width: 95%;
   margin: 5% 2%;
   padding: 1.5% 2%;
