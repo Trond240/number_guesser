@@ -50,6 +50,7 @@ h4 {
 .left-side-section {
   width: 50%;
   border: 1px solid grey;
+  background-color: #F7F7F7;
 }
 
 .white-font {
@@ -68,6 +69,7 @@ h4 {
   width: 95%;
   margin: 5% 2%;
   padding: 1.5% 2%;
+  background-color: #FFFFFF;
 }
 
 .latest-score-card {
@@ -91,6 +93,7 @@ h4 {
   width: 95%;
   margin: 5% 2%;
   padding: 1.5% 2%;
+  background-color: #FFFFFF;
 }
 
 .dark-button {
@@ -109,6 +112,7 @@ h4 {
   width: 95%;
   margin: 5% 2%;
   padding: 1.5% 2%;
+  background-color: #FFFFFF;
 }
 
 label {
