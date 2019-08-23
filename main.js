@@ -13,6 +13,7 @@ var randomNumber = null;
 rangeButton.addEventListener('click', updateRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', updateCurrentGuess);
+submitGuessButton.addEventListener('click', submitGuess);
 
 function updateRange() {
   minNum.innerText = minRangeSelection.value;
@@ -25,7 +26,44 @@ function createRandomNum() {
   console.log(randomNumber);
 };
 
+function submitGuess() {
+  updateCurrentGuess();
+  submitChallengerOneGuess();
+  submitChallengerTwoGuess();
+};
+
 function updateCurrentGuess() {
   currentOneGuess.innerText = challengerOneGuess.value;
   currentTwoGuess.innerText = challengerTwoGuess.value;
 };
+
+function submitChallengerOneGuess() {
+  if (parseInt(challengerOneGuess.value) === randomNumber) {
+    document.querySelector('.challenger-one-reply').innerText = "BOOM!";
+    // createWinnerCard('player1');
+  } else if (parseInt(challengerOneGuess.value) > randomNumber) {
+    document.querySelector('.challenger-one-reply').innerText = "that's too high";
+  } else if (parseInt(challengerOneGuess.value) < randomNumber) {
+    document.querySelector('.challenger-one-reply').innerText = "that's too low";
+  }
+};
+
+function submitChallengerTwoGuess() {
+  if (parseInt(challengerTwoGuess.value) === randomNumber) {
+    document.querySelector('.challenger-two-reply').innerText = "BOOM!";
+    createWinnerCard('player2');
+  } else if (parseInt(challengerTwoGuess.value) > randomNumber) {
+    document.querySelector('.challenger-two-reply').innerText = "that's too high";
+  } else if (parseInt(challengerTwoGuess.value) < randomNumber) {
+    document.querySelector('.challenger-two-reply').innerText = "that's too low";
+  }
+};
+
+// function createWinnerCard(winner) {
+//
+// }
+
+// on buton submit, if guess is greater than randomNumber,
+// return this number is too high.  If guess is lower,
+// return this number is too low.  If guess is the same as
+// randomNumer create a card.
