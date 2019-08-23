@@ -9,11 +9,18 @@ var maxNum = document.querySelector('.max-number');
 var rangeButton = document.querySelector('.range-button');
 var submitGuessButton = document.querySelector('#submit-guess-button');
 var randomNumber = null;
+var challengerOneName = document.querySelector('.challenger-1-name');
+var challengerTwoName = document.querySelector('.challenger-2-name');
+var challengerOneNew = document.querySelector('.challenger-1-name-change');
+var challengerTwoNew = document.querySelector('.challenger-2-name-change');
+var challengerOneNameInput = document.querySelector('.AAA');
+var challengerTwoNameInput = document.querySelector('.AAAA');
 
 rangeButton.addEventListener('click', updateRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', updateCurrentGuess);
 submitGuessButton.addEventListener('click', submitGuess);
+submitGuessButton.addEventListener('click', enterName);
 
 function updateRange() {
   minNum.innerText = minRangeSelection.value;
@@ -67,3 +74,11 @@ function submitChallengerTwoGuess() {
 // return this number is too high.  If guess is lower,
 // return this number is too low.  If guess is the same as
 // randomNumer create a card.
+
+function enterName(){
+  console.log(challengerOneNew.innerText)
+  challengerOneNew.innerText = challengerOneNameInput.value;
+  console.log(challengerTwoNew.innerText)
+  challengerTwoNew.innerText = challengerTwoNameInput.value;
+};
+
