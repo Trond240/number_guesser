@@ -1,5 +1,3 @@
-var challengerOneName = document.querySelector('.challenger-1-name');
-var challengerTwoName = document.querySelector('.challenger-2-name');
 var challengerOneNew = document.querySelector('.challenger-1-name-change');
 var challengerTwoNew = document.querySelector('.challenger-2-name-change');
 var challengerOneNameInput = document.querySelector('.player-1-input-name');
@@ -18,9 +16,6 @@ var latestScoreNameOne = document.querySelector('.latest-score-name-1');
 var latestScoreNameTwo = document.querySelector('.latest-score-name-2');
 var clearResetButtons = document.querySelectorAll('.dark-button');
 var randomNumber = null;
-// var styleButton = document.querySelector(".style-button");
-// var changeColorButton = document.querySelector('.change-color-button');
-
 
 rangeButton.addEventListener('click', updateRange);
 rangeButton.addEventListener('click', createRandomNum);
@@ -29,6 +24,8 @@ submitGuessButton.addEventListener('click', enterName);
 document.querySelectorAll('.input').forEach(function(input) {
   input.addEventListener('keyup', checkButtonDisable);
 });
+
+console.log(clearResetButtons);
 
 clearResetButtons.forEach(function(button) {
   button.disabled = true;
@@ -60,8 +57,6 @@ function checkButtonDisable() {
   }
 };
 
-checkButtonDisable();
-
 function submitGuess() {
   updateCurrentGuess();
   submitChallengerOneGuess();
@@ -76,11 +71,6 @@ function enterName(){
   latestScoreNameTwo.innerText = challengerTwoNameInput.value;
 };
 
-
-// //changeColorButton.addEventListener('click', funtion () {
-//   styleButton.style.backgroundColor = '';
-//
-// });
 function submitGuess() {
   updateCurrentGuess();
   submitChallengerOneGuess();
@@ -96,7 +86,7 @@ function updateCurrentGuess() {
 function submitChallengerOneGuess() {
   if (parseInt(challengerOneGuess.value) === randomNumber) {
     document.querySelector('.challenger-one-reply').innerText = "BOOM!";
-    // createWinnerCard('player1');
+    createWinnerCard(challengerOneNameInput.value);
   } else if (parseInt(challengerOneGuess.value) > randomNumber) {
     document.querySelector('.challenger-one-reply').innerText = "that's too high";
   } else if (parseInt(challengerOneGuess.value) < randomNumber) {
@@ -107,27 +97,28 @@ function submitChallengerOneGuess() {
 function submitChallengerTwoGuess() {
   if (parseInt(challengerTwoGuess.value) === randomNumber) {
     document.querySelector('.challenger-two-reply').innerText = "BOOM!";
-    createWinnerCard('player2');
+    createWinnerCard(challengerTwoNameInput.value);
   } else if (parseInt(challengerTwoGuess.value) > randomNumber) {
     document.querySelector('.challenger-two-reply').innerText = "that's too high";
   } else if (parseInt(challengerTwoGuess.value) < randomNumber) {
     document.querySelector('.challenger-two-reply').innerText = "that's too low";
   }
 };
-// function createWinnerCard(winner) {
-//
-// }
 
-// on buton submit, if guess is greater than randomNumber,
-// return this number is too high.  If guess is lower,
-// return this number is too low.  If guess is the same as
-// randomNumer create a card.
-//
-// function checkButtonDisable() {
-//   var buttons = document.querySelectorAll('.button');
-//   buttons.forEach(function(button) {
-//     button.disabled = true;
-//   })
-// };
-//
-// checkButtonDisable();
+function createWinnerCard(winner) {
+  var winnerCard = document.createElement('section');
+  winnerCard.className = 'winner-card-border';
+  winnerCard.innerHTML = `
+      <p class="center-title"><span class="bold-name">${challengerOneNameInput.value}</span>
+       VS <span class="bold-name">${challengerTwoNameInput.value}</span></p>
+      <div>
+        <h2 class="center-title">${winner}</h2>
+        <h2 class="center-title">WINNER</h2>
+      </div>
+      <div class="winner-card-botom-row">
+        <p> 42 GUESSES</p>
+        <p> 1.32 MINUTES</P>
+        <p>X</p>
+      </div>`;
+    document.querySelector('.right-side-container').appendChild(winnerCard);
+};
