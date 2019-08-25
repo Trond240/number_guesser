@@ -16,11 +16,13 @@ var latestScoreNameOne = document.querySelector('.latest-score-name-1');
 var latestScoreNameTwo = document.querySelector('.latest-score-name-2');
 var clearResetButtons = document.querySelectorAll('.dark-button');
 var randomNumber = null;
+var clearButton = document.querySelector('#clear-button');
 
 rangeButton.addEventListener('click', updateRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', submitGuess);
 submitGuessButton.addEventListener('click', enterName);
+clearButton.addEventListener('click', clearInput);
 document.querySelectorAll('.input').forEach(function(input) {
   input.addEventListener('keyup', checkButtonDisable);
 });
@@ -121,4 +123,10 @@ function createWinnerCard(winner) {
         <p>X</p>
       </div>`;
     document.querySelector('.right-side-container').appendChild(winnerCard);
+};
+
+function clearInput() {
+  document.querySelectorAll('.input').forEach(function(input) {
+    input.value = '';
+  });
 };
