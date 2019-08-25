@@ -14,18 +14,25 @@ var minNum = document.querySelector('.min-number');
 var maxNum = document.querySelector('.max-number');
 var rangeButton = document.querySelector('.range-button');
 var submitGuessButton = document.querySelector('#submit-guess-button');
-var randomNumber = null;
 var latestScoreNameOne = document.querySelector('.latest-score-name-1');
 var latestScoreNameTwo = document.querySelector('.latest-score-name-2');
+var clearResetButtons = document.querySelectorAll('.dark-button');
+var randomNumber = null;
 // var styleButton = document.querySelector(".style-button");
 // var changeColorButton = document.querySelector('.change-color-button');
 
 
 rangeButton.addEventListener('click', updateRange);
 rangeButton.addEventListener('click', createRandomNum);
-submitGuessButton.addEventListener('click', updateCurrentGuess);
 submitGuessButton.addEventListener('click', submitGuess);
 submitGuessButton.addEventListener('click', enterName);
+document.querySelectorAll('.input').forEach(function(input) {
+  input.addEventListener('keyup', checkButtonDisable);
+});
+
+clearResetButtons.forEach(function(button) {
+  button.disabled = true;
+});
 
 function updateRange() {
   minNum.innerText = minRangeSelection.value;
@@ -36,6 +43,30 @@ function createRandomNum() {
   randomNumber = Math.floor(Math.random() * (parseInt(maxRangeSelection.value)
     - parseInt(minRangeSelection.value) + 1) + parseInt(minRangeSelection.value));
   console.log(randomNumber);
+};
+
+function checkButtonDisable() {
+  if (challengerOneNameInput.value !== '' &&
+    challengerTwoNameInput.value !== '' &&
+    challengerOneGuess.value !== '' &&
+    challengerTwoGuess.value !== '') {
+      clearResetButtons.forEach(function(button) {
+        button.disabled = false;
+      })
+  } else {
+    clearResetButtons.forEach(function(button) {
+      button.disabled = true;
+    })
+  }
+};
+
+checkButtonDisable();
+
+function submitGuess() {
+  updateCurrentGuess();
+  submitChallengerOneGuess();
+  submitChallengerTwoGuess();
+  enterName();
 };
 
 function enterName(){
@@ -54,6 +85,7 @@ function submitGuess() {
   updateCurrentGuess();
   submitChallengerOneGuess();
   submitChallengerTwoGuess();
+  enterName();
 };
 
 function updateCurrentGuess() {
@@ -82,7 +114,6 @@ function submitChallengerTwoGuess() {
     document.querySelector('.challenger-two-reply').innerText = "that's too low";
   }
 };
-
 // function createWinnerCard(winner) {
 //
 // }
@@ -91,4 +122,12 @@ function submitChallengerTwoGuess() {
 // return this number is too high.  If guess is lower,
 // return this number is too low.  If guess is the same as
 // randomNumer create a card.
-
+//
+// function checkButtonDisable() {
+//   var buttons = document.querySelectorAll('.button');
+//   buttons.forEach(function(button) {
+//     button.disabled = true;
+//   })
+// };
+//
+// checkButtonDisable();

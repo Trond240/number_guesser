@@ -48,6 +48,11 @@ h4 {
   letter-spacing: 1px;
 }
 
+.main-page-layout {
+  display:flex;
+  flex-direction: row-reverse;
+}
+
 .left-side-section {
   width: 50%;
   border: 1px solid grey;
@@ -97,12 +102,40 @@ h4 {
   background-color: #FFFFFF;
 }
 
-.set-range-label {
+.set-range-label-container {
   display: flex;
 }
 
+.set-range-label {
+  display: flex;
+  flex-direction: column;
+}
+
 .set-range-text {
+  height: 30px;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 0 0px;
+  font-size: 18px;
+}
+
+.min-range-input {
   height: 42px;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 5px 0;
+  font-size: 18px;
+}
+
+.max-range-input {
+  height: 42px;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 5px 0;
+  font-size: 18px;
 }
 
 .dark-button-small {
@@ -111,10 +144,11 @@ h4 {
   border-radius: 35px;
   font-size: 20px;
   text-align: center;
-  width: 181px;
+  width: 140px;
   height: 42px;
   font-weight: 700;
-  margin: 2%;
+  align-self: flex-end;
+  margin: 0 0 4px 0;
 }
 
 .dark-button {
@@ -129,6 +163,10 @@ h4 {
   margin: 2%;
 }
 
+.dark-button:disabled {
+  background-color: #D0D2D3;
+}
+
 .dark-button-large {
   background-color: #6e6e6e;
   color: #ffffff;
@@ -140,9 +178,24 @@ h4 {
   font-weight: 700;
   margin: 2%;
 }
+.current-range-header {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
 
 .challenger-title {
-  margin: 3% 0% 0% 0%;
+  margin: 15px 0% 0% 0%;
+}
+
+.min-number {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.max-number {
+  font-weight: bolder;
+  text-decoration: underline;
 }
 
 .current-range-section {
@@ -155,6 +208,7 @@ h4 {
 
 .label-above-container {
   display: flex;
+  margin: 5px 0 0 0;
 }
 
 .label-above {
@@ -177,4 +231,38 @@ label {
 
 input {
   height: 28px;
+}
+
+/* Winner Card CSS */
+
+.right-side-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-end; */
+}
+
+.winner-card-border {
+  width: 90%;
+  height: fit-content;
+  border: 1px solid #404041;
+  display: flex;
+  flex-direction: column;
+  background-color: #F7F7F7;
+  margin: 5% 0 0 0;
+  padding: 1.5% 2%;
+}
+
+.bold-name {
+  font-weight: bold;
+}
+
+.center-title {
+  text-align: center;;
+}
+
+.winner-card-botom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
