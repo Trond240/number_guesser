@@ -15,6 +15,7 @@ var submitGuessButton = document.querySelector('#submit-guess-button');
 var latestScoreNameOne = document.querySelector('.latest-score-name-1');
 var latestScoreNameTwo = document.querySelector('.latest-score-name-2');
 var clearResetButtons = document.querySelectorAll('.dark-button');
+var resetButton = document.querySelector('#reset-button')
 var randomNumber = null;
 var clearButton = document.querySelector('#clear-button');
 
@@ -23,6 +24,7 @@ rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', submitGuess);
 submitGuessButton.addEventListener('click', enterName);
 clearButton.addEventListener('click', clearInput);
+resetButton.addEventListener('click', resetInput);
 document.querySelectorAll('.input').forEach(function(input) {
   input.addEventListener('keyup', checkButtonDisable);
 });
@@ -129,4 +131,24 @@ function clearInput() {
   document.querySelectorAll('.input').forEach(function(input) {
     input.value = '';
   });
+};
+
+function clearLatestScore() {
+  latestScoreNameOne.innerText = 'Challenger 1 Name';
+  latestScoreNameTwo.innerText = 'Challenger 2 Name';
+};
+
+function clearLatestGuess() {
+  currentOneGuess.innerText = '?';
+  currentTwoGuess.innerText = '?';
+};
+
+function resetInput() {
+  document.querySelectorAll('.input').forEach(function(input) {
+    input.value = '';
+  });
+  // document.querySelector('.right-side-container').removeChild(winnerCard);
+  createRandomNum();
+  clearLatestScore();
+  clearLatestGuess();
 };
