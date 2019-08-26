@@ -19,6 +19,7 @@ var resetButton = document.querySelector('#reset-button')
 var randomNumber = null;
 var clearButton = document.querySelector('#clear-button');
 
+// reveset after event bubbling lesson.
 rangeButton.addEventListener('click', updateRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', submitGuess);
@@ -51,6 +52,7 @@ function checkButtonDisable() {
     challengerTwoNameInput.value !== '' &&
     challengerOneGuess.value !== '' &&
     challengerTwoGuess.value !== '') {
+      // Make sure we can write this as a for loop too!
       clearResetButtons.forEach(function(button) {
         button.disabled = false;
       })
@@ -154,3 +156,10 @@ function resetInput() {
   clearLatestScore();
   clearLatestGuess();
 };
+
+function maxMinGuess() {
+  challegerOneGuess.setAttribute('max', maxRangeSelection.value);
+  challegerOneGuess.setAttribute('min', minRangeSelection.value);
+  challegerTwoGuess.setAttribute('max', maxRangeSelection.value);
+  challegerTw0Guess.setAttribute('min', minRangeSelection.value);
+}
