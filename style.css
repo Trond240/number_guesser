@@ -277,7 +277,7 @@ input {
 .center-title-2 {
   text-align: center;
   color: grey;
-  font-weight: 100;
+  font-weight: 80;
 }
 
 .winner-card-botom-row {
@@ -287,9 +287,11 @@ input {
   color: grey;
   border-top: solid;
   border-color: #D0D2D3;
+  border-width: 1.5px;
 }
 
 .above-border {
   border-top: solid;
   border-color: #D0D2D3;
+  border-width: 1.5px;
 }
