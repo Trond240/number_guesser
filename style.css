@@ -273,7 +273,7 @@ input {
   text-align: center;
   color: grey;
   word-spacing: 1em;
-  padding-bottom: 7px;
+  padding-bottom: 14px;
 }
 
 .center-title-2 {
@@ -298,4 +298,13 @@ input {
   border-color: #D0D2D3;
   border-width: 1.5px;
   padding-top: 16px;
+}
+
+.score-card-close-button {
+  height: 21px;
+	font-size: 16px;
+	color: #D0D2D3;
+	background-color: #6E6E6E;
+	border-radius: 50%;
+  width: 20px;
 }

@@ -117,7 +117,7 @@ function createWinnerCard(winner) {
       <div class="winner-card-botom-row">
         <p>42 GUESSES</p>
         <p>1.32 MINUTES</P>
-        <p>X</p>
+        <button class='score-card-close-button'>X</button>
       </div>`;
     document.querySelector('.right-side-container').appendChild(winnerCard);
 };
