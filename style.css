@@ -12,7 +12,7 @@ body {
   background-color: #D1D2D4;
 }
 
-header{
+header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -255,14 +255,31 @@ input {
 
 .bold-name {
   font-weight: bold;
+  color: grey;
+  word-spacing: 2em;
 }
 
 .center-title {
-  text-align: center;;
+  text-align: center;
+  color: grey;
+}
+
+.center-title-2 {
+  text-align: center;
+  color: grey;
+  font-weight: 100;
 }
 
 .winner-card-botom-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: grey;
+  border-top: solid;
+  border-color: #D0D2D3;
+}
+
+.above-border {
+  border-top: solid;
+  border-color: #D0D2D3;
 }
