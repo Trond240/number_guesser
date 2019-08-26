@@ -23,11 +23,11 @@
         <form class="set-range-label-container">
           <section class="set-range-label">
             <label type="label" name="Min Range" class="set-range-text">Min Range</label>
-            <input type="number" class="min-range-input">
+            <input type="number" maxlength="4" class="min-range-input">
           </section>
           <section class="set-range-label">
             <label type="label" name="Max Range" class = "set-range-text">Max Range</label>
-            <input type="number" class="max-range-input">
+            <input type="number" maxlength="4" class="max-range-input">
           </section>
           <input type="button" class="dark-button-small range-button button" value="UPDATE">
         </form>
@@ -38,11 +38,15 @@
         <form class="label-above-container">
           <section class="label-above-big">
             <label type="label" name="Name" class="name-input-box">Name</label>
+<<<<<<< Updated upstream
             <input type="text" class="player-1-input-name input" maxlength="15">
+=======
+            <input type="text" maxlength="15" class="player-1-input-name input">
+>>>>>>> Stashed changes
           </section>
           <section class="label-above">
             <label type="label" name="Guess">Guess</label>
-            <input type="number" class="guess-input-box input" id="challenger-one-guess">
+            <input type="number" maxlength="4" class="guess-input-box input" id="challenger-one-guess">
           </section>
         </form>
         <h3><span class="challenger-2-name-change">Challenger 2</span></h3>
@@ -50,14 +54,18 @@
           <div class="label-above-container">
             <section class="label-above-big">
               <label type="label" name="Name" class="name-input-box">Name</label>
+<<<<<<< Updated upstream
               <input type="text" class="player-2-input-name input" maxlength="15">
+=======
+              <input type="text" maxlength="15" class="player-2-input-name input">
+>>>>>>> Stashed changes
             </section>
             <section class="label-above">
               <label type="label" name="Guess">Guess</label>
-              <input type="number" class="guess-input-box input" id="challenger-two-guess">
+              <input type="number" maxlength="4" class="guess-input-box input" id="challenger-two-guess">
             </section>
           </div>
-          <div>
+          <div class="button-spacing">
             <input type="button" class="dark-button-large button" value="SUBMIT GUESS" id="submit-guess-button">
             <input type="button" class="dark-button button" id="reset-button" value="RESET GAME">
             <input type="button" class="dark-button button" id="clear-button" value="CLEAR GAME">
