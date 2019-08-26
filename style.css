@@ -272,6 +272,8 @@ input {
 .center-title {
   text-align: center;
   color: grey;
+  word-spacing: 1em;
+  padding-bottom: 7px;
 }
 
 .center-title-2 {
@@ -288,10 +290,12 @@ input {
   border-top: solid;
   border-color: #D0D2D3;
   border-width: 1.5px;
+  padding-top: 7px;
 }
 
 .above-border {
   border-top: solid;
   border-color: #D0D2D3;
   border-width: 1.5px;
+  padding-top: 16px;
 }
