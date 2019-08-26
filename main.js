@@ -116,8 +116,8 @@ function createWinnerCard(winner) {
       <p class="center-title"><span class="bold-name">${challengerOneNameInput.value}</span>
        VS <span class="bold-name">${challengerTwoNameInput.value}</span></p>
       <div>
-        <h2 class="center-title">${winner}</h2>
-        <h2 class="center-title">WINNER</h2>
+        <h2 class="center-title above-border">${winner}</h2>
+        <h2 class="center-title-2">WINNER</h2>
       </div>
       <div class="winner-card-botom-row">
         <p>42 GUESSES</p>
@@ -161,3 +161,13 @@ function resetInput() {
   clearLatestScore();
   clearLatestGuess();
 };
+<<<<<<< Updated upstream
+=======
+
+// function maxMinGuess() {
+//   challegerOneGuess.setAttribute('max', maxRangeSelection.value);
+//   challegerOneGuess.setAttribute('min', minRangeSelection.value);
+//   challegerTwoGuess.setAttribute('max', maxRangeSelection.value);
+//   challegerTw0Guess.setAttribute('min', minRangeSelection.value);
+// }
+>>>>>>> Stashed changes
