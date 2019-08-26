@@ -295,3 +295,20 @@ input {
   border-color: #D0D2D3;
   border-width: 1.5px;
 }
+
+.score-card-guesses {
+  font-weight: bold;
+}
+
+.score-card-minutes {
+  font-weight: bold;
+}
+
+.score-card-button {
+  height: 20px;
+	font-size: 16px;
+	color: #D0D2D3;
+	background-color: #6E6E6E;
+	border-radius: 50%;
+  width: 20px;
+}
