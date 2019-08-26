@@ -75,13 +75,6 @@ function enterName(){
   latestScoreNameTwo.innerText = challengerTwoNameInput.value;
 };
 
-function submitGuess() {
-  updateCurrentGuess();
-  submitChallengerOneGuess();
-  submitChallengerTwoGuess();
-  enterName();
-};
-
 function updateCurrentGuess() {
   currentOneGuess.innerText = challengerOneGuess.value;
   currentTwoGuess.innerText = challengerTwoGuess.value;
