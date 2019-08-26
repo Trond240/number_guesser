@@ -120,8 +120,8 @@ function createWinnerCard(winner) {
         <h2 class="center-title">WINNER</h2>
       </div>
       <div class="winner-card-botom-row">
-        <p> 42 GUESSES</p>
-        <p> 1.32 MINUTES</P>
+        <p>42 GUESSES</p>
+        <p>1.32 MINUTES</P>
         <p>X</p>
       </div>`;
     document.querySelector('.right-side-container').appendChild(winnerCard);
@@ -136,6 +136,8 @@ function clearInput() {
 function clearLatestScore() {
   latestScoreNameOne.innerText = 'Challenger 1 Name';
   latestScoreNameTwo.innerText = 'Challenger 2 Name';
+  challengerOneNew.innerText = 'Challenger 1';
+  challengerTwoNew.innerText = 'Challenger 2';
 };
 
 function clearLatestGuess() {
@@ -143,11 +145,18 @@ function clearLatestGuess() {
   currentTwoGuess.innerText = '?';
 };
 
+function removeElement() {
+  var elements = document.querySelectorAll('.winner-card-border');
+  elements.forEach(function(element) {
+    element.parentNode.removeChild(element);
+  })
+};
+
 function resetInput() {
   document.querySelectorAll('.input').forEach(function(input) {
     input.value = '';
   });
-  // document.querySelector('.right-side-container').removeChild(winnerCard);
+  removeElement();
   createRandomNum();
   clearLatestScore();
   clearLatestGuess();
