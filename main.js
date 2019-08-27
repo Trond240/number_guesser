@@ -40,10 +40,13 @@ clearResetButtons.forEach(function(button) {
 
 function effectRange() {
   rangeError();
+  // deleteAlert();
+  emptyBoxError();
 };
 
-// function deleteAlert(event) {
-//   event.target.closest('div').remove();
+// function deleteAlert() {
+//   highAlertMessage.removeChild(highAlertMessage);
+//   lowAlertMessage.removeChild(lowAlertMessage);
 // };
 
 function updateRange() {
@@ -78,6 +81,7 @@ function submitGuess() {
   submitChallengerOneGuess();
   submitChallengerTwoGuess();
   enterName();
+  emptyGuessError();
 };
 
 function enterName(){
@@ -177,14 +181,11 @@ function resetInput() {
 // }
 
 function rangeError() {
-  console.log('firing');
   if (minRangeSelection.value > maxRangeSelection.value) {
     var lowAlert = document.createElement('div');
     lowAlert.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
       alt="error message icon" class="alert-img"> Number too low!</p>`;
     document.querySelector('.low-alert').appendChild(lowAlert);
-    console.log('firing');
-  // } else if (maxRangeSelection.value < minRangeSelection.value) {
     var highAlert = document.createElement('div');
     highAlert.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
       alt="error message icon" class="alert-img"> Number too high!</p>`;
@@ -192,5 +193,32 @@ function rangeError() {
     console.log('firing');
   } else {
     updateRange();
+  }
+};
+
+function emptyBoxError() {
+  if (minRangeSelection.value === '' &&
+    maxRangeSelection.value === '') {
+    var emptyRange = document.createElement('div');
+    emptyRange.className = '.alert-text-right';
+    emptyRange.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Range not set!</p>`;
+    document.querySelector('.set-range-section').appendChild(emptyRange);
+  }
+};
+
+function emptyGuessError() {
+  console.log('firing');
+  if (challengerOneGuess.value === '') {
+    var emptyGuessOne = document.createElement('div');
+    emptyGuessOne.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Enter a guess!</p>`;
+    document.querySelector('.guess-one').appendChild(emptyGuessOne);
+  }
+  if (challengerTwoGuess.value === '') {
+    var emptyGuessTwo = document.createElement('div');
+    emptyGuessTwo.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Enter a guess!</p>`;
+    document.querySelector('.guess-two').appendChild(emptyGuessTwo);
   }
 };
