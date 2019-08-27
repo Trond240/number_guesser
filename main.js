@@ -18,12 +18,14 @@ var clearResetButtons = document.querySelectorAll('.dark-button');
 var resetButton = document.querySelector('#reset-button')
 var randomNumber = null;
 var clearButton = document.querySelector('#clear-button');
+var highAlertMessage = document.querySelector('.high-alert');
+var lowAlertMessage = document.querySelector('.low-alert');
+
 
 // reveset after event bubbling lesson.
-rangeButton.addEventListener('click', updateRange);
+rangeButton.addEventListener('click', effectRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', submitGuess);
-submitGuessButton.addEventListener('click', enterName);
 clearButton.addEventListener('click', clearInput);
 resetButton.addEventListener('click', resetInput);
 document.querySelectorAll('.input').forEach(function(input) {
@@ -35,6 +37,14 @@ console.log(clearResetButtons);
 clearResetButtons.forEach(function(button) {
   button.disabled = true;
 });
+
+function effectRange() {
+  rangeError();
+};
+
+// function deleteAlert(event) {
+//   event.target.closest('div').remove();
+// };
 
 function updateRange() {
   minNum.innerText = minRangeSelection.value;
@@ -151,6 +161,8 @@ function resetInput() {
   document.querySelectorAll('.input').forEach(function(input) {
     input.value = '';
   });
+  document.querySelector('.challenger-two-reply').innerText = "";
+  document.querySelector('.challenger-one-reply').innerText = "";
   removeElement();
   createRandomNum();
   clearLatestScore();
@@ -164,9 +176,21 @@ function resetInput() {
 //   challegerTw0Guess.setAttribute('min', minRangeSelection.value);
 // }
 
-function maxMinGuess() {
-  challegerOneGuess.setAttribute('max', maxRangeSelection.value);
-  challegerOneGuess.setAttribute('min', minRangeSelection.value);
-  challegerTwoGuess.setAttribute('max', maxRangeSelection.value);
-  challegerTw0Guess.setAttribute('min', minRangeSelection.value);
-}
+function rangeError() {
+  console.log('firing');
+  if (minRangeSelection.value > maxRangeSelection.value) {
+    var lowAlert = document.createElement('div');
+    lowAlert.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Number too low!</p>`;
+    document.querySelector('.low-alert').appendChild(lowAlert);
+    console.log('firing');
+  // } else if (maxRangeSelection.value < minRangeSelection.value) {
+    var highAlert = document.createElement('div');
+    highAlert.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Number too high!</p>`;
+    document.querySelector('.high-alert').appendChild(highAlert);
+    console.log('firing');
+  } else {
+    updateRange();
+  }
+};

@@ -247,6 +247,7 @@ label {
 
 input {
   height: 42px;
+  font-size: 18px;
 }
 
 /* Winner Card CSS */
@@ -338,6 +339,14 @@ input {
   font-size: 10px;
 }
 
+.alert-img {
+  height: 15px;
+}
+
+.alert-text {
+  color: #DD1970;
+}
+
 @media (max-width: 1000px) {
   .dark-button-large {
     background-color: #6e6e6e;
@@ -378,12 +387,17 @@ input {
 }
 
 @media (max-width: 810px) {
+  .main-page-layout {
+    display:flex;
+    flex-direction: column-reverse;
+  }
+
   .left-side-section {
     width: 100%;
   }
 
   .right-side-container {
-    width: 0%;
+    width: 100%;
   }
 }
 
@@ -393,7 +407,7 @@ input {
   }
 
   .right-side-container {
-    width: 0%;
+    width: 100%;
   }
 
   .set-range-label-container {
@@ -474,8 +488,11 @@ input {
   }
 
   .guess-number-1 {
-    border-bottom: solid 1px #e8e8e8;
     font-size: 160px;
+  }
+
+  .challenger-one-reply {
+    border-bottom: solid 1px #e8e8e8;
   }
 
   .guess-number-2 {
@@ -516,4 +533,3 @@ input {
   .dark-button-small {
     font-size: 13px;
   }
-
