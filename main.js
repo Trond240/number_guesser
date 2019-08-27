@@ -109,7 +109,7 @@ function createWinnerCard(winner) {
   winnerCard.className = 'winner-card-border';
   winnerCard.innerHTML = `
       <p class="center-title"><span class="bold-name">${challengerOneNameInput.value}</span>
-       VS <span class="bold-name">${challengerTwoNameInput.value}</span></p>
+      <span class="VS"> VS </span><span class="bold-name">${challengerTwoNameInput.value}</span></p>
       <div>
         <h2 class="center-title above-border">${winner}</h2>
         <h2 class="center-title-2">WINNER</h2>
