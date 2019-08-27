@@ -279,13 +279,15 @@ input {
   text-align: center;
   color: grey;
   word-spacing: 1em;
-  padding-bottom: 14px;
+  padding-bottom: 7px;
+  font-size: 8;
 }
 
 .center-title-2 {
   text-align: center;
   color: grey;
   font-weight: 80;
+  padding-bottom: 7px;
 }
 
 .winner-card-botom-row {
@@ -303,7 +305,7 @@ input {
   border-top: solid;
   border-color: #D0D2D3;
   border-width: 1.5px;
-  padding-top: 16px;
+  padding-top: 7px;
 }
 
 .score-card-close-button {
@@ -330,6 +332,10 @@ input {
 	background-color: #6E6E6E;
 	border-radius: 50%;
   width: 20px;
+}
+
+.VS {
+  font-size: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -510,4 +516,4 @@ input {
   .dark-button-small {
     font-size: 13px;
   }
-}
+
