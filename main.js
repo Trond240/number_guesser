@@ -19,10 +19,10 @@ var resetButton = document.querySelector('#reset-button')
 var randomNumber = null;
 var clearButton = document.querySelector('#clear-button');
 var alertText = document.querySelector('.alert-text');
-var rightSide = document.querySelector('.right-side-container');
+// var rightSide = document.querySelector('.right-side-container');
 
-// reveset after event bubbling lesson.
-rightSide.addEventListener('click', deleteWinnerCard);
+// revisit after event bubbling lesson.
+document.querySelector('.right-side-container').addEventListener('click', deleteWinnerCard);
 rangeButton.addEventListener('click', effectRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', submitGuess);
@@ -73,6 +73,16 @@ function submitGuess() {
   submitChallengerTwoGuess();
   enterName();
   emptyGuessError();
+  countGuesses();
+};
+
+function countGuesses(){
+  var guessCountOne = document.querySelector('.guess-total-one');
+  guessCountOne.innerHTML = parseInt(guessCountOne.innerText) + 1;
+  console.log(guessCountOne);
+  var guessCountTwo = document.querySelector('.guess-total-two');
+  guessCountTwo.innerHTML = parseInt(guessCountTwo.innerText) + 1;
+  console.log(guessCountTwo);
 };
 
 function enterName(){
@@ -161,7 +171,6 @@ function deleteWinnerCard(event) {
 };
 
 function widenRange() {
-  console.log('firing');
   maxRangeSelection.value = (parseInt(maxRangeSelection.value) + 10);
   minRangeSelection.value = (parseInt(minRangeSelection.value) - 10);
 };
@@ -201,6 +210,8 @@ function resetInput() {
   createRandomNum();
   clearLatestScore();
   clearLatestGuess();
+  document.querySelector('.guess-total-one').innerHTML = 0;
+  document.querySelector('.guess-total-two').innerHTML = 0;
 };
 // need to test all alert functionality
 function rangeError() {
