@@ -82,6 +82,30 @@ function enterName(){
   latestScoreNameTwo.innerText = challengerTwoNameInput.value;
 };
 
+function limitGuessOne(input) {
+  if (input.value < minRangeSelection.value || input.value > maxRangeSelection.value) {
+    input.value = '';
+    document.querySelector('.guess-alert-text-one').innerHTML = `<img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Guess is outside range!`;
+    challengerOneGuess.style.border = '1px solid #DD1970';
+  } else {
+      document.querySelector('.guess-alert-text-one').innerHTML = '';
+      challengerOneGuess.style.border = '';
+  }
+};
+
+function limitGuessTwo(input) {
+  if (input.value < minRangeSelection.value || input.value > maxRangeSelection.value) {
+    input.value = '';
+    document.querySelector('.guess-alert-text-two').innerHTML = `<img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Guess is outside range!`;
+    challengerOneGuess.style.border = '1px solid #DD1970';
+  } else {
+      document.querySelector('.guess-alert-text-two').innerHTML = '';
+      challengerOneGuess.style.border = '';
+  }
+};
+
 function updateCurrentGuess() {
   currentOneGuess.innerText = challengerOneGuess.value;
   currentTwoGuess.innerText = challengerTwoGuess.value;
