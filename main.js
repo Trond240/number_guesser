@@ -200,6 +200,13 @@ function removeElement() {
   })
 };
 
+function clearRange() {
+  minNum.innerText = 1;
+  maxNum.innerText = 100;
+  minRangeSelection.value = '';
+  maxRangeSelection.value = '';
+}
+
 function resetInput() {
   document.querySelectorAll('.input').forEach(function(input) {
     input.value = '';
@@ -210,6 +217,7 @@ function resetInput() {
   createRandomNum();
   clearLatestScore();
   clearLatestGuess();
+  clearRange();
   document.querySelector('.guess-total-one').innerHTML = 0;
   document.querySelector('.guess-total-two').innerHTML = 0;
 };
