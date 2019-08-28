@@ -202,7 +202,7 @@ function resetInput() {
   clearLatestScore();
   clearLatestGuess();
 };
-
+// need to test all alert functionality
 function rangeError() {
   if (minRangeSelection.value === '' || maxRangeSelection.value === '') {
     emptyBoxError();
