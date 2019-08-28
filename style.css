@@ -58,6 +58,7 @@ p {
   flex-direction: row-reverse;
 }
 
+/* player input side */
 .left-side-section {
   background-color: #F7F7F7;
   border: 1px solid #AAAAAA;
@@ -338,7 +339,7 @@ input {
 .VS {
   font-size: 10px;
 }
-
+/* alert text */
 .alert-img {
   height: 15px;
 }
@@ -348,7 +349,7 @@ input {
 .guess-alert-text-two {
   color: #DD1970;
 }
-
+/* media query section */
 @media (max-width: 1000px) {
   .dark-button-large {
     background-color: #6e6e6e;
