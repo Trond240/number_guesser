@@ -32,6 +32,9 @@
           </section>
           <input type="button" class="dark-button-small range-button button" value="UPDATE">
         </form>
+        <div class="alert-text-right">
+          <p class="alert-text"></p>
+        </div>
       </section>
       <section class="current-range-section">
         <p class="current-range-header">The Current Range is <span class="min-number">1</span> to <span class="max-number">100</span></p>
@@ -41,9 +44,12 @@
             <label type="label" name="Name" class="name-input-box">Name</label>
             <input type="text" class="player-1-input-name input" maxlength="15">
           </section>
-          <section class="label-above">
+          <section class="label-above guess-one">
             <label type="label" name="Guess">Guess</label>
             <input type="number" maxlength="4" class="guess-input-box input" id="challenger-one-guess">
+            <div>
+              <p class="guess-alert-text-one"></p>
+            </div>
           </section>
         </form>
         <h3><span class="challenger-2-name-change">Challenger 2</span></h3>
@@ -53,9 +59,12 @@
               <label type="label" name="Name" class="name-input-box">Name</label>
               <input type="text" class="player-2-input-name input" maxlength="15">
             </section>
-            <section class="label-above">
+            <section class="label-above guess-two">
               <label type="label" name="Guess">Guess</label>
               <input type="number" maxlength="4" class="guess-input-box input" id="challenger-two-guess">
+              <div>
+                <p class="guess-alert-text-two"></p>
+              </div>
             </section>
           </div>
           <div class="button-spacing">
