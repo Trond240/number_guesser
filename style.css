@@ -8,24 +8,24 @@
 }
 
 body {
-  font-family: "Open Sans";
   background-color: #D1D2D4;
+  font-family: "Open Sans";
 }
 
 header {
+  align-items: center;
+  background-color: #404041;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #404041;
   padding: 1%;
 }
 
 h1 {
   color: #dd1972;
-  letter-spacing: 2px;
   font-size: 71px;
   font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .subtitle-container {
@@ -34,13 +34,13 @@ h1 {
 
 .line {
   border-bottom: 2px solid #FFFFFF;
-  width: 120px;
   margin: 11px;
+  width: 120px;
 }
 
 h3 {
-  font-size: 25px;
   color: #606060;
+  font-size: 25px;
 }
 
 h4 {
@@ -59,9 +59,9 @@ p {
 }
 
 .left-side-section {
-  width: 50%;
-  border: 1px solid #AAAAAA;
   background-color: #F7F7F7;
+  border: 1px solid #AAAAAA;
+  width: 50%;
 }
 
 .white-font {
@@ -73,14 +73,14 @@ p {
 }
 
 .latest-score-card-border {
-  display: flex;
-  justify-content: center;
-  flex-wrap:wrap;
+  background-color: #FFFFFF;
   border: 1px solid #e8e8e8;
-  width: 95%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
   margin: 4% 2%;
   padding: 1.5% 2%;
-  background-color: #FFFFFF;
+  width: 95%;
 }
 
 .latest-score-card {
@@ -95,16 +95,16 @@ p {
 .latest-score-header {
   color: #606060;
   display: block;
-  width: 100%;
   font-size: 25px;
+  width: 100%;
 }
 
 .set-range-section {
+  background-color: #FFFFFF;
   border: 1px solid #e8e8e8;
-  width: 95%;
   margin: 4% 2%;
   padding: 1.5% 2%;
-  background-color: #FFFFFF;
+  width: 95%;
 }
 
 .set-range-label-container {
@@ -114,60 +114,60 @@ p {
 .set-range-label {
   display: flex;
   flex-direction: column;
-  width: 34%;
   margin: 0% 5% 0% 0%;
+  width: 34%;
 }
 
 .set-range-text {
-  height: 30px;
-  width: 232px;
   display: flex;
   flex-direction: column;
-  margin: 0 20px 0 0px;
   font-size: 18px;
+  height: 30px;
+  margin: 0 20px 0 0px;
+  width: 232px;
 }
 
 .min-range-input {
-  height: 42px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0 20px 5px 0;
   font-size: 18px;
+  height: 42px;
+  margin: 0 20px 5px 0;
+  width: 100%;
 }
 
 .max-range-input {
-  height: 42px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0 20px 5px 0;
   font-size: 18px;
+  height: 42px;
+  margin: 0 20px 5px 0;
+  width: 100%;
 }
 
 .dark-button-small {
+  align-self: flex-end;
   background-color: #6e6e6e;
-  color: #ffffff;
   border-radius: 35px;
+  color: #ffffff;
   font-size: 20px;
+  font-weight: 700;
+  height: 42px;
+  margin: 0 0 4px 0;
   text-align: center;
   width: 140px;
-  height: 42px;
-  font-weight: 700;
-  align-self: flex-end;
-  margin: 0 0 4px 0;
 }
 
 .dark-button {
   background-color: #6e6e6e;
-  color: #ffffff;
   border-radius: 35px;
+  color: #ffffff;
   font-size: 20px;
+  font-weight: 700;
+  height: 42px;
+  margin: 4% 0% 1%;
   text-align: center;
   width: 191px;
-  height: 42px;
-  font-weight: 700;
-  margin: 4% 0% 1%;
 }
 
 .dark-button:disabled {
@@ -176,14 +176,14 @@ p {
 
 .dark-button-large {
   background-color: #6e6e6e;
-  color: #ffffff;
   border-radius: 35px;
+  color: #ffffff;
   font-size: 20px;
+  font-weight: 700;
+  height: 42px;
+  margin: 4% 0% 1%;
   text-align: center;
   width: 210px;
-  height: 42px;
-  font-weight: 700;
-  margin: 4% 0% 1%;
 }
 
 .button-spacing {
@@ -192,9 +192,9 @@ p {
 }
 
 .current-range-header {
-  margin: 0 0 15px 0;
   font-size: 18px;
   letter-spacing: 1px;
+  margin: 0 0 15px 0;
 }
 
 .challenger-title {
@@ -212,11 +212,11 @@ p {
 }
 
 .current-range-section {
+  background-color: #FFFFFF;
   border: 1px solid #e8e8e8;
-  width: 95%;
   margin: 4% 2%;
   padding: 1.5% 2%;
-  background-color: #FFFFFF;
+  width: 95%;
 }
 
 .label-above-container {
@@ -253,42 +253,42 @@ input {
 /* Winner Card CSS */
 
 .right-side-container {
-  width: 50%;
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .winner-card-border {
-  width: 90%;
-  height: fit-content;
+  background-color: #F7F7F7;
   border: 1px solid #404041;
   display: flex;
   flex-direction: column;
-  background-color: #F7F7F7;
+  height: fit-content;
   margin: 5% 0 0 0;
   padding: 1.5% 2%;
+  width: 90%;
 }
 
 .bold-name {
-  font-weight: bold;
   color: grey;
+  font-weight: bold;
   word-spacing: 2em;
 }
 
 .center-title {
-  text-align: center;
   color: grey;
-  word-spacing: 1em;
-  padding-bottom: 7px;
   font-size: 8;
+  padding-bottom: 7px;
+  text-align: center;
+  word-spacing: 1em;
 }
 
 .center-title-2 {
-  text-align: center;
   color: grey;
   font-weight: 80;
   padding-bottom: 7px;
+  text-align: center;
 }
 
 .winner-card-botom-row {
@@ -343,7 +343,9 @@ input {
   height: 15px;
 }
 
-.alert-text {
+.alert-text,
+.guess-alert-text-one,
+.guess-alert-text-two {
   color: #DD1970;
 }
 
@@ -386,7 +388,7 @@ input {
   }
 }
 
-@media (max-width: 810px) {
+@media (max-width: 830px) {
   .main-page-layout {
     display:flex;
     flex-direction: column-reverse;

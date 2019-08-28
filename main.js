@@ -18,11 +18,11 @@ var clearResetButtons = document.querySelectorAll('.dark-button');
 var resetButton = document.querySelector('#reset-button')
 var randomNumber = null;
 var clearButton = document.querySelector('#clear-button');
-var highAlertMessage = document.querySelector('.high-alert');
-var lowAlertMessage = document.querySelector('.low-alert');
-
+var alertText = document.querySelector('.alert-text');
+var rightSide = document.querySelector('.right-side-container');
 
 // reveset after event bubbling lesson.
+rightSide.addEventListener('click', deleteWinnerCard);
 rangeButton.addEventListener('click', effectRange);
 rangeButton.addEventListener('click', createRandomNum);
 submitGuessButton.addEventListener('click', submitGuess);
@@ -32,22 +32,13 @@ document.querySelectorAll('.input').forEach(function(input) {
   input.addEventListener('keyup', checkButtonDisable);
 });
 
-console.log(clearResetButtons);
-
 clearResetButtons.forEach(function(button) {
   button.disabled = true;
 });
 
 function effectRange() {
   rangeError();
-  // deleteAlert();
-  emptyBoxError();
 };
-
-// function deleteAlert() {
-//   highAlertMessage.removeChild(highAlertMessage);
-//   lowAlertMessage.removeChild(lowAlertMessage);
-// };
 
 function updateRange() {
   minNum.innerText = minRangeSelection.value;
@@ -134,6 +125,21 @@ function createWinnerCard(winner) {
         <button class ="score-card-button">X</button>
       </div>`;
     document.querySelector('.right-side-container').appendChild(winnerCard);
+    widenRange();
+    updateRange();
+    createRandomNum();
+};
+
+function deleteWinnerCard(event) {
+  if (event.target.className === 'score-card-button') {
+    event.target.closest('.winner-card-border').remove();
+  }
+};
+
+function widenRange() {
+  console.log('firing');
+  maxRangeSelection.value = (parseInt(maxRangeSelection.value) + 10);
+  minRangeSelection.value = (parseInt(minRangeSelection.value) - 10);
 };
 
 function clearInput() {
@@ -173,52 +179,55 @@ function resetInput() {
   clearLatestGuess();
 };
 
-// function maxMinGuess() {
-//   challegerOneGuess.setAttribute('max', maxRangeSelection.value);
-//   challegerOneGuess.setAttribute('min', minRangeSelection.value);
-//   challegerTwoGuess.setAttribute('max', maxRangeSelection.value);
-//   challegerTw0Guess.setAttribute('min', minRangeSelection.value);
-// }
-
 function rangeError() {
-  if (minRangeSelection.value > maxRangeSelection.value) {
-    var lowAlert = document.createElement('div');
-    lowAlert.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Number too low!</p>`;
-    document.querySelector('.low-alert').appendChild(lowAlert);
-    var highAlert = document.createElement('div');
-    highAlert.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Number too high!</p>`;
-    document.querySelector('.high-alert').appendChild(highAlert);
-    console.log('firing');
+  if (minRangeSelection.value === '' || maxRangeSelection.value === '') {
+    emptyBoxError();
+  } else if (parseInt(minRangeSelection.value) > parseInt(maxRangeSelection.value)) {
+    alertText.innerHTML = `<img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Sorry, the max must be higher than the min, try again!`;
   } else {
     updateRange();
+    clearAlerts();
   }
 };
 
+function clearAlerts() {
+  alertText.innerHTML = '';
+  maxRangeSelection.style.border = '';
+  minRangeSelection.style.border = '';
+}
+
 function emptyBoxError() {
-  if (minRangeSelection.value === '' &&
-    maxRangeSelection.value === '') {
-    var emptyRange = document.createElement('div');
-    emptyRange.className = '.alert-text-right';
-    emptyRange.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Range not set!</p>`;
-    document.querySelector('.set-range-section').appendChild(emptyRange);
-  }
+    alertText.innerHTML = `<img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Missing range entries, please complete`;
+    if (minRangeSelection.value === '') {
+      minRangeSelection.style.border = '1px solid #DD1970';
+    } else {
+      minRangeSelection.style.border = '';
+    };
+    if (maxRangeSelection.value === '') {
+      maxRangeSelection.style.border = '1px solid #DD1970';
+    } else {
+      maxRangeSelection.style.border = '';
+    }
 };
 
 function emptyGuessError() {
-  console.log('firing');
   if (challengerOneGuess.value === '') {
-    var emptyGuessOne = document.createElement('div');
-    emptyGuessOne.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Enter a guess!</p>`;
-    document.querySelector('.guess-one').appendChild(emptyGuessOne);
-  }
+    document.querySelector('.guess-alert-text-one').innerHTML = `<img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Enter a guess!`;
+    challengerOneGuess.style.border = '1px solid #DD1970';
+  } else {
+    document.querySelector('.guess-alert-text-one').innerHTML = '';
+    challengerOneGuess.style.border = '';
+  };
   if (challengerTwoGuess.value === '') {
-    var emptyGuessTwo = document.createElement('div');
-    emptyGuessTwo.innerHTML = `<p class="alert-text"><img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Enter a guess!</p>`;
-    document.querySelector('.guess-two').appendChild(emptyGuessTwo);
+    document.querySelector('.guess-alert-text-two').innerHTML = `<img src="error-icon.svg"
+      alt="error message icon" class="alert-img"> Enter a guess!`;
+    challengerTwoGuess.style.border = '1px solid #DD1970';
+  } else {
+    document.querySelector('.guess-alert-text-two').innerHTML = '';
+    challengerTwoGuess.style.border = '';
+
   }
 };
