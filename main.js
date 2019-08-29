@@ -226,6 +226,13 @@ function removeElement() {
   })
 };
 
+function clearRange() {
+  minNum.innerText = 1;
+  maxNum.innerText = 100;
+  minRangeSelection.value = '';
+  maxRangeSelection.value = '';
+}
+
 function resetInput() {
   document.querySelectorAll('.input').forEach(function(input) {
     input.value = '';
@@ -236,8 +243,12 @@ function resetInput() {
   document.querySelector('.challenger-one-reply').innerText = "";
   clearLatestScore();
   clearLatestGuess();
+<<<<<<< HEAD
   document.querySelector('.max-range-input').value = '';
   document.querySelector('.min-range-input').value = '';
+=======
+  clearRange();
+>>>>>>> 4751e0b36a20ef66d1760607add847e7b9248ed1
   document.querySelector('.guess-total-one').innerHTML = 0;
   document.querySelector('.guess-total-two').innerHTML = 0;
 };
