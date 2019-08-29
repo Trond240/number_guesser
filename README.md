@@ -22,5 +22,6 @@
 
 ![UNADJUSTEDNONRAW_thumb_1](https://user-images.githubusercontent.com/49410633/63909318-75a2bc00-c9df-11e9-8dac-7e62dd573c14.jpg)
 ![Image 8-28-19 at 3 22 PM](https://user-images.githubusercontent.com/49410633/63909324-78051600-c9df-11e9-884b-4d06daf3a5ef.jpg)
+![Image 8-28-19 at 3 27 PM](https://user-images.githubusercontent.com/49410633/63909479-0083b680-c9e0-11e9-8dbe-6d7554ce8794.jpg)
 ![Image 8-28-19 at 3 26 PM](https://user-images.githubusercontent.com/49410633/63909327-7b989d00-c9df-11e9-86af-45d6c76cb421.jpg)
 ![Image 8-28-19 at 3 28 PM](https://user-images.githubusercontent.com/49410633/63909332-7f2c2400-c9df-11e9-8bfe-86a39d98073a.jpg)
