@@ -10,24 +10,18 @@ var minRangeSelection = document.querySelector('.min-range-input');
 var maxRangeSelection = document.querySelector('.max-range-input');
 var minNum = document.querySelector('.min-number');
 var maxNum = document.querySelector('.max-number');
-var rangeButton = document.querySelector('.range-button');
-var submitGuessButton = document.querySelector('#submit-guess-button');
 var latestScoreNameOne = document.querySelector('.latest-score-name-1');
 var latestScoreNameTwo = document.querySelector('.latest-score-name-2');
 var clearResetButtons = document.querySelectorAll('.dark-button');
-var resetButton = document.querySelector('#reset-button')
-var randomNumber = null;
-var clearButton = document.querySelector('#clear-button');
 var alertText = document.querySelector('.alert-text');
-// var rightSide = document.querySelector('.right-side-container');
+var randomNumber = null;
+var guessCount = 0;
 
-// revisit after event bubbling lesson.
 document.querySelector('.right-side-container').addEventListener('click', deleteWinnerCard);
-rangeButton.addEventListener('click', effectRange);
-rangeButton.addEventListener('click', createRandomNum);
-submitGuessButton.addEventListener('click', submitGuess);
-clearButton.addEventListener('click', clearInput);
-resetButton.addEventListener('click', resetInput);
+document.querySelector('.range-button').addEventListener('click', rangeErrorCheck);
+document.querySelector('#submit-guess-button').addEventListener('click', submitGuess);
+document.querySelector('#clear-button').addEventListener('click', clearInput);
+document.querySelector('#reset-button').addEventListener('click', resetInput);
 document.querySelectorAll('.input').forEach(function(input) {
   input.addEventListener('keyup', checkButtonDisable);
 });
@@ -35,10 +29,6 @@ document.querySelectorAll('.input').forEach(function(input) {
 clearResetButtons.forEach(function(button) {
   button.disabled = true;
 });
-
-function effectRange() {
-  rangeError();
-};
 
 function updateRange() {
   minNum.innerText = minRangeSelection.value;
@@ -48,7 +38,7 @@ function updateRange() {
 function createRandomNum() {
   randomNumber = Math.floor(Math.random() * (parseInt(maxRangeSelection.value)
     - parseInt(minRangeSelection.value) + 1) + parseInt(minRangeSelection.value));
-  console.log(randomNumber);
+  console.log(`Your random number is: ${randomNumber}`);
 };
 
 function checkButtonDisable() {
@@ -56,7 +46,6 @@ function checkButtonDisable() {
     challengerTwoNameInput.value !== '' &&
     challengerOneGuess.value !== '' &&
     challengerTwoGuess.value !== '') {
-      // Make sure we can write this as a for loop too!
       clearResetButtons.forEach(function(button) {
         button.disabled = false;
       })
@@ -68,21 +57,16 @@ function checkButtonDisable() {
 };
 
 function submitGuess() {
-  updateCurrentGuess();
-  submitChallengerOneGuess();
-  submitChallengerTwoGuess();
   enterName();
-  emptyGuessError();
+  limitGuesses(challengerOneGuess, '.guess-alert-text-one');
+  limitGuesses(challengerTwoGuess, '.guess-alert-text-two');
+  submitChallengerGuesses(challengerOneGuess, challengerOneNameInput, '.challenger-one-reply');
+  submitChallengerGuesses(challengerTwoGuess, challengerTwoNameInput, '.challenger-two-reply');
   countGuesses();
 };
 
 function countGuesses(){
-  var guessCountOne = document.querySelector('.guess-total-one');
-  guessCountOne.innerHTML = parseInt(guessCountOne.innerText) + 1;
-  console.log(guessCountOne);
-  var guessCountTwo = document.querySelector('.guess-total-two');
-  guessCountTwo.innerHTML = parseInt(guessCountTwo.innerText) + 1;
-  console.log(guessCountTwo);
+  guessCount += 1;
 };
 
 function enterName(){
@@ -92,27 +76,19 @@ function enterName(){
   latestScoreNameTwo.innerText = challengerTwoNameInput.value;
 };
 
-function limitGuessOne(input) {
-  if (input.value < minRangeSelection.value || input.value > maxRangeSelection.value) {
-    input.value = '';
-    document.querySelector('.guess-alert-text-one').innerHTML = `<img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Guess is outside range!`;
-    challengerOneGuess.style.border = '1px solid #DD1970';
+function limitGuesses(playerGuessInput, alertClass) {
+  if (parseInt(playerGuessInput.value) < parseInt(minRangeSelection.value) || parseInt(playerGuessInput.value) > parseInt(maxRangeSelection.value)) {
+    playerGuessInput.value = '';
+    document.querySelector(alertClass).innerHTML = `<img src="error-icon.svg"
+    alt="error message icon" class="alert-img"> Guess is outside range!`;
+    playerGuessInput.style.border = '1px solid #DD1970';
+  } else if (playerGuessInput.value === '') {
+    document.querySelector(alertClass).innerHTML = `<img src="error-icon.svg"
+    alt="error message icon" class="alert-img"> Enter a guess!`;
+    playerGuessInput.style.border = '1px solid #DD1970';
   } else {
-      document.querySelector('.guess-alert-text-one').innerHTML = '';
-      challengerOneGuess.style.border = '';
-  }
-};
-
-function limitGuessTwo(input) {
-  if (input.value < minRangeSelection.value || input.value > maxRangeSelection.value) {
-    input.value = '';
-    document.querySelector('.guess-alert-text-two').innerHTML = `<img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Guess is outside range!`;
-    challengerOneGuess.style.border = '1px solid #DD1970';
-  } else {
-      document.querySelector('.guess-alert-text-two').innerHTML = '';
-      challengerOneGuess.style.border = '';
+    document.querySelector(alertClass).innerHTML = '';
+    playerGuessInput.style.border = '';
   }
 };
 
@@ -121,25 +97,15 @@ function updateCurrentGuess() {
   currentTwoGuess.innerText = challengerTwoGuess.value;
 };
 
-function submitChallengerOneGuess() {
-  if (parseInt(challengerOneGuess.value) === randomNumber) {
-    document.querySelector('.challenger-one-reply').innerText = "BOOM!";
-    createWinnerCard(challengerOneNameInput.value);
-  } else if (parseInt(challengerOneGuess.value) > randomNumber) {
-    document.querySelector('.challenger-one-reply').innerText = "that's too high";
-  } else if (parseInt(challengerOneGuess.value) < randomNumber) {
-    document.querySelector('.challenger-one-reply').innerText = "that's too low";
-  }
-};
-
-function submitChallengerTwoGuess() {
-  if (parseInt(challengerTwoGuess.value) === randomNumber) {
-    document.querySelector('.challenger-two-reply').innerText = "BOOM!";
-    createWinnerCard(challengerTwoNameInput.value);
-  } else if (parseInt(challengerTwoGuess.value) > randomNumber) {
-    document.querySelector('.challenger-two-reply').innerText = "that's too high";
-  } else if (parseInt(challengerTwoGuess.value) < randomNumber) {
-    document.querySelector('.challenger-two-reply').innerText = "that's too low";
+function submitChallengerGuesses(challengerGuess, challengerNameInput, challengerReplyClass) {
+  updateCurrentGuess();
+  if (parseInt(challengerGuess.value) === randomNumber) {
+    document.querySelector(challengerReplyClass).innerText = "BOOM!";
+    createWinnerCard(challengerNameInput.value);
+  } else if (parseInt(challengerGuess.value) > randomNumber) {
+    document.querySelector(challengerReplyClass).innerText = "that's too high";
+  } else if (parseInt(challengerGuess.value) < randomNumber) {
+    document.querySelector(challengerReplyClass).innerText = "that's too low";
   }
 };
 
@@ -154,7 +120,7 @@ function createWinnerCard(winner) {
         <h2 class="center-title-2">WINNER</h2>
       </div>
       <div class="winner-card-botom-row">
-        <p><span class ="score-card-guesses">42</span> GUESSES</p>
+        <p><span class ="score-card-guesses">${(guessCount * 2)}</span> GUESSES</p>
         <p><span class ="score-card-minutes">1.32</span> MINUTES</P>
         <button class ="score-card-button">X</button>
       </div>`;
@@ -191,6 +157,8 @@ function clearLatestScore() {
 function clearLatestGuess() {
   currentOneGuess.innerText = '?';
   currentTwoGuess.innerText = '?';
+  minNum.innerText = 1;
+  maxNum.innerText = 100;
 };
 
 function removeElement() {
@@ -211,24 +179,25 @@ function resetInput() {
   document.querySelectorAll('.input').forEach(function(input) {
     input.value = '';
   });
-  document.querySelector('.challenger-two-reply').innerText = "";
-  document.querySelector('.challenger-one-reply').innerText = "";
   removeElement();
   createRandomNum();
+  document.querySelector('.challenger-two-reply').innerText = "";
+  document.querySelector('.challenger-one-reply').innerText = "";
   clearLatestScore();
   clearLatestGuess();
-  clearRange();
-  document.querySelector('.guess-total-one').innerHTML = 0;
-  document.querySelector('.guess-total-two').innerHTML = 0;
+  document.querySelector('.max-range-input').value = '';
+  document.querySelector('.min-range-input').value = '';
+  clearAlerts();
 };
-// need to test all alert functionality
-function rangeError() {
+
+function rangeErrorCheck() {
   if (minRangeSelection.value === '' || maxRangeSelection.value === '') {
     emptyBoxError();
   } else if (parseInt(minRangeSelection.value) > parseInt(maxRangeSelection.value)) {
     alertText.innerHTML = `<img src="error-icon.svg"
       alt="error message icon" class="alert-img"> Sorry, the max must be higher than the min, try again!`;
   } else {
+    createRandomNum();
     updateRange();
     clearAlerts();
   }
@@ -238,7 +207,11 @@ function clearAlerts() {
   alertText.innerHTML = '';
   maxRangeSelection.style.border = '';
   minRangeSelection.style.border = '';
-}
+  challengerOneGuess.style.border = '';
+  challengerTwoGuess.style.border = '';
+  document.querySelector('.guess-alert-text-one').innerHTML = '';
+  document.querySelector('.guess-alert-text-two').innerHTML = '';
+};
 
 function emptyBoxError() {
     alertText.innerHTML = `<img src="error-icon.svg"
@@ -253,24 +226,4 @@ function emptyBoxError() {
     } else {
       maxRangeSelection.style.border = '';
     }
-};
-
-function emptyGuessError() {
-  if (challengerOneGuess.value === '') {
-    document.querySelector('.guess-alert-text-one').innerHTML = `<img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Enter a guess!`;
-    challengerOneGuess.style.border = '1px solid #DD1970';
-  } else {
-    document.querySelector('.guess-alert-text-one').innerHTML = '';
-    challengerOneGuess.style.border = '';
-  };
-  if (challengerTwoGuess.value === '') {
-    document.querySelector('.guess-alert-text-two').innerHTML = `<img src="error-icon.svg"
-      alt="error message icon" class="alert-img"> Enter a guess!`;
-    challengerTwoGuess.style.border = '1px solid #DD1970';
-  } else {
-    document.querySelector('.guess-alert-text-two').innerHTML = '';
-    challengerTwoGuess.style.border = '';
-
-  }
 };
