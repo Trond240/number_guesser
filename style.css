@@ -4,7 +4,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* border: 1px solid red; */
 }
 
 body {
@@ -252,7 +251,6 @@ input {
 }
 
 /* Winner Card CSS */
-
 .right-side-container {
   align-items: center;
   display: flex;
@@ -339,6 +337,7 @@ input {
 .VS {
   font-size: 10px;
 }
+
 /* alert text */
 .alert-img {
   height: 15px;
@@ -349,6 +348,7 @@ input {
 .guess-alert-text-two {
   color: #DD1970;
 }
+
 /* media query section */
 @media (max-width: 1000px) {
   .dark-button-large {
